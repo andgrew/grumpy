@@ -306,7 +306,7 @@ class BlockVisitor(algorithm.Visitor):
 
   def visit_ExceptHandler(self, node):
     if node.name:
-      self._register_local(node.name.id)
+      self._assign_target(node.name)
     self.generic_visit(node)
 
   def visit_For(self, node):

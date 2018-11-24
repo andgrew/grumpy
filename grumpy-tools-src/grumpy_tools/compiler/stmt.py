@@ -730,8 +730,7 @@ class StatementVisitor(algorithm.Visitor):
     self._write_py_context(except_node.lineno)
     self.writer.write_label(label)
     if except_node.name:
-      self.block.bind_var(self.writer, except_node.name.id,
-                          '{}.ToObject()'.format(exc))
+      self._assign_target(except_node.name, '{}.ToObject()'.format(exc))
     self._visit_each(except_node.body)
     self.writer.write('πF.RestoreExc(nil, nil)')
 
