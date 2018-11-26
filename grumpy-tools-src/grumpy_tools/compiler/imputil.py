@@ -296,7 +296,7 @@ def find_script(dirname, name, main=False, use_grumpy_stdlib=True):
       logger.debug("Package '%s' is from Grumpy stdlib", name)
       return result
 
-  prefix = os.path.join(dirname, name.replace('.', os.sep))
+  prefix = os.path.join(dirname, name)
   script = prefix + '.py'
   if os.path.isfile(script):
     return script
